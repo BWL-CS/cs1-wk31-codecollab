@@ -1,17 +1,40 @@
 const cup = document.querySelector("#cup-display");
 
-document.querySelector("#add-milk").addEventListener("click", function () {
+// SECTION 1
+const milkBtn = document.querySelector("#add-milk");
+milkBtn.addEventListener("click", addMilk);
+
+function addMilk() {
+  cup.classList.remove("coffee");
   cup.classList.add("milk");
-  cup.textContent = "Milk added!";
-});
+  cup.textContent = "[ Coffee with Milk ]";
+}
 
-document.querySelector("#add-caramel").addEventListener("click", function () {
-  cup.classList.add("caramel");
-  cup.textContent = "Caramel syrup added!";
-});
+// SECTION 2
+const iceBtn = document.querySelector("#add-ice");
+iceBtn.addEventListener("click", addIce);
 
-document.querySelector("#add-ice").addEventListener("click", function () {
-  const snowflake = document.createElement("div");
-  snowflake.textContent = "❄️ Ice added!";
-  cup.appendChild(snowflake);
-});
+let iceCount = 0;
+
+function addIce() {
+  if (iceCount < 20) {
+    const iceCube = document.createElement("span");
+    iceCube.textContent = "🧊";
+    cup.appendChild(iceCube);
+    iceCount++;
+  }
+  else {
+    cup.textContent = "TOO MUCH ICE!";
+  }
+}
+
+// SECTION 3
+const resetBtn = document.querySelector("#reset");
+resetBtn.addEventListener("click", resetCup);
+
+function resetCup() {
+  cup.classList.remove("milk");
+  cup.classList.add("coffee");
+  cup.innerHTML = "[ Coffee ]";
+  iceCount = 0;
+}
