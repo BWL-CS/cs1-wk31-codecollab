@@ -9,9 +9,15 @@
 #cup-display {
   width: 200px;
   height: 250px;
-  text-align: center;
   font-size: 22px;
   padding-top: 100px;
-  margin: auto;
   border: 10px solid black;
+  text-align: center;
+  margin: auto;
+}
+
+body {
+  text-align: center;
+  margin: auto;
+  font-family: sans-serif;
 }
