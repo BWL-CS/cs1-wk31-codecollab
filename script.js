@@ -1,14 +1,17 @@
 const cup = document.querySelector("#cup-display");
 const counter = document.querySelector("#counter");
+const milkEmoji = document.querySelector("#milk-emoji");
 
 // SECTION 1
 const milkBtn = document.querySelector("#add-milk");
 milkBtn.addEventListener("click", addMilk);
 
 function addMilk() {
-  cup.classList.remove("coffee");
-  cup.classList.add("milk");
+  cup.classList.remove("coffee-color");
+  cup.classList.add("milky-color");
   cup.textContent = "LATTE";
+  // ANIMATION (look at CSS)
+  milkEmoji.classList.add("milk-animation");
 }
 
 // SECTION 2
@@ -22,7 +25,7 @@ function addIce() {
   if (iceCount < 10) {
     const iceCube = document.createElement("span");
     iceCube.textContent = "🧊";
-    iceCube.style.fontSize = "40px";
+    iceCube.style.fontSize = "20px";
     cup.appendChild(iceCube);
     iceCount++;
   }
@@ -38,9 +41,10 @@ const resetBtn = document.querySelector("#reset");
 resetBtn.addEventListener("click", resetCup);
 
 function resetCup() {
-  cup.classList.remove("milk");
-  cup.classList.add("coffee");
+  cup.classList.remove("milky-color");
+  cup.classList.add("coffee-color");
   cup.innerHTML = "COFFEE";
   iceCount = 0;
   iceBtn.disabled = false;
+  milkEmoji.classList.remove("milk-animation");
 }

@@ -1,9 +1,27 @@
-.coffee {
+.coffee-color {
   background: #6F4E37;
 }
 
-.milk {
+.milky-color {
   background: #b89d8a;
+}
+
+/* ANIMATION is triggered in JavaScript by adding this class name! */
+.milk-animation {
+  animation-name: pour-milk;
+  animation-duration: 3s;
+  animation-iteration-count: 2;
+}
+@keyframes pour-milk {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-100deg); }
+}
+
+#milk-emoji {
+  position: absolute;
+  top: 5%;
+  left: 65%;
+  font-size: 100px;
 }
 
 #cup-display {
